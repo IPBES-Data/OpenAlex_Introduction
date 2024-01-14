@@ -1,0 +1,177 @@
+---
+title: "Open Alex -What, Why and How"
+author: Rainer M Krug (Rainer.Krug@uzh.ch, Rainer@krugs.de) 
+format: 
+    revealjs:
+        logo: logo.png
+        footer: "Footer text"
+        slide-number: c/t
+        embed-resources: true
+        css: my.css
+        menu:
+            side: right
+            width: wide
+        toc: true
+---
+
+# What is [OpenAlex](OpenAlex.org)
+
+## General Info
+
+# Why OpenAlex
+
+## OpenAlex and Open Science
+
+- Open Data
+- Open Source
+- Free API access
+
+## OpenAlex versus others  {.extra-small}
+
+|                       | Number of works  | OA works    | Citations | Price        | Data Openness             | Org structure |
+| --------------------- | ---------------- | ----------- | --------- | ------------ | ------------------------- | ------------- |
+| OpenAlex              | 243M             | 48M         | 1.9B      | Freemium     | Fully open, CC0 license   | Non-profit    |
+| Scopus                | 87M              | [20.5M](https://blog.scopus.com/posts/scopus-now-includes-90-million-content-records) | 1.8B      | Subscription | Closed                    | For Profit    |
+| Web of Science (core) | 87M (ref)        | [12M](https://clarivate.com/webofsciencegroup/solutions/open-access/)   | 1.8B      | Subscription | Closed                    | For Profit    |
+| Dimensions            | 135M             | [29M](https://www.dimensions.ai/resources/evaluate-your-universitys-oa-status/)   | 1.7B      | Freemium     | Partly open, personal use | For Profit    |
+| Google Scholar        | 389M (estimated) | ?           | ?         | Free         | Closed                    | For Profit    |
+| Crossref              | 145M             | 20M         | 1.45B     | Free         | Fully open, CC0 license   | Non-profit    |
+
+
+::: footer
+[From: https://openalex.org/about#comparison](https://openalex.org/about#comparison)
+:::
+
+## OpenAlex Coverage
+
+![](figures/coverage.png)
+
+::: footer
+[From: https://help.openalex.org/coverage](https://help.openalex.org/coverage)
+:::
+
+
+## OpenAlex Sources {.smaller}
+:::: {.columns}
+
+::: {.column width="40%"}
+- [MAG](https://aka.ms/msracad)
+- [Crossref](https://www.crossref.org/)
+:::
+
+::: {.column width="60%"}   
+- ORCID
+- ROR
+- DOAJ
+- Unpaywall
+- Pubmed
+- Pubmed Central
+- The ISSN International Centre
+- Internet Archive
+- Web crawls
+- Subject-area and institutional repositories from arXiv to Zenodo and many in between
+:::
+
+::::
+
+# How to use OpenAlex
+
+
+- [openalexR](https://docs.ropensci.org/openalexR/) (R)
+- [PyAlex](https://github.com/J535D165/pyalex) (Python)
+- [diophila](https://pypi.org/project/diophila/) (Python)
+- [OpenAlexAPI](https://pypi.org/project/openalexapi/) (Python)
+- [KtAlex](https://github.com/benedekh/KtAlex) (Kotlin)
+
+Also: [VOSviewer](https://www.vosviewer.com) [Slides](https://explore.openalex.org/Visualizing_Science_Using_OpenAlex_and_VOSviewer.pdf) and [Video](https://www.youtube.com/watch?v=MfwFzLQmUwo)
+
+
+## OpenAlex Webinars
+
+[OpenAlex Webinars](https://openalex.org/webinars)
+
+## GUI
+
+## Programmatically (e.g. R)
+
+## Other Programming languages
+
+
+
+
+
+# In the morning
+[Manual for revealjs](https://quarto.org/docs/presentations/revealjs/#executable-code)
+
+## Write Python Code
+```{.python code-line-numbers="|6|9"}
+import numpy as np
+import matplotlib.pyplot as plt
+
+r = np.arange(0, 2, 0.01)
+theta = 2 * np.pi * r
+fig, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+ax.plot(theta, r)
+ax.set_rticks([0.5, 1, 1.5, 2])
+ax.grid(True)
+plt.show()
+```
+
+## Write R Code
+```{R}
+#| code-line-numbers: "|2|4"
+#| echo: true
+#| output-location: column
+
+x <- 1:100
+y <- x + rnorm(100)
+plot(x,y)
+lines(x[c(1,100)],y[c(1,100)])
+```
+
+## Getting up
+
+- Turn off alarm
+- Get out of bed
+
+## Image Stack
+
+::: {.r-stack}
+![](image1.png){.fragment width="450" height="300"}
+
+![](image2.png){.fragment width="300" height="450"}
+
+![](image3.png){.fragment width="400" height="400"}
+:::
+
+## Breakfast
+
+- Eat eggs
+- Drink coffee
+
+# In the evening
+
+## Dinner
+
+- Eat spaghetti
+- Drink wine
+
+---
+
+Something without heading 
+
+## Going to sleep
+::: {.incremental}
+
+- Get in bed
+- Count sheep
+:::
+
+## Night
+
+- giving up to sleep
+- go to bed
+
+---
+
+The End
