@@ -1,12 +1,12 @@
 ---
-title: "Open Alex"
+title: "OpenAlex"
 subtitle: "What, Why and How"
 author: Rainer M Krug (Rainer.Krug@uzh.ch, Rainer@krugs.de) 
 date: 14 May 2024
 format: 
     revealjs:
         logo: figures/uzh_logo.png
-        footer: "[Rainer M Krug](mailto:Rainer@krugs.de?subject=OpenAlex%20ReproducibiliTea%20Journal%20Club), ReproducibiliTea UZH, ReproducibiliTea UZH Journal Club 14 May 2024"
+        footer: "[Rainer M Krug](mailto:Rainer@krugs.de?subject=OpenAlex%20ReproducibiliTea%20Journal%20Club), ReproducibiliTea UZH Journal Club 14 May 2024"
         slide-number: c/t
         embed-resources: true
         css: my.css
