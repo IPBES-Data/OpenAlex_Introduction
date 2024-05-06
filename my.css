@@ -2,3 +2,10 @@
     font-size: 0.5em;
     /* Adjust this value as needed */
 }
+
+.reveal .slide-logo {
+    height: 100px !important;
+    width: auto !important;
+    max-width: unset !important;
+    max-height: unset !important;
+}
