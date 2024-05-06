@@ -6,7 +6,7 @@ date: 14 May 2024
 format: 
     revealjs:
         logo: figures/uzh_logo.png
-        footer: "[Rainer M Krug](mailto:Rainer@krugs.de?subject=OpenAlex%20ReproducibiliTea%20Journal%20Club), ReproducibiliTea UZH Journal Club 14 May 2024"
+        footer: "[Rainer M Krug](mailto:Rainer@krugs.de?subject=OpenAlex%20ReproducibiliTea%20Journal%20Club), ReproducibiliTea UZH Journal Club 14 May 2024, [DOI](https://zenodo.org/doi/10.5281/zenodo.11120633)"
         slide-number: c/t
         embed-resources: true
         css: my.css
@@ -205,4 +205,6 @@ snowball
 
 
 - [OpenAlex Webinars](https://openalex.org/webinars)
-- [OpenaAlex user Group](https://groups.google.com/g/openalex-users)
+- [OpenAlex user Group](https://groups.google.com/g/openalex-users)
+
+[https://doi.org/10.5281/zenodo.11120633 ![DOI](figures/qr.png)](https://doi.org/10.5281/zenodo.11120633)
