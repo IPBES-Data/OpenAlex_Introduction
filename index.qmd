@@ -1,0 +1,210 @@
+---
+title: "Open Alex"
+subtitle: "What, Why and How"
+author: Rainer M Krug (Rainer.Krug@uzh.ch, Rainer@krugs.de) 
+date: 14 May 2024
+format: 
+    revealjs:
+        logo: figures/uzh_logo.png
+        footer: "[Rainer M Krug](mailto:Rainer@krugs.de?subject=OpenAlex%20ReproducibiliTea%20Journal%20Club), ReproducibiliTea UZH, ReproducibiliTea UZH Journal Club 14 May 2024"
+        slide-number: c/t
+        embed-resources: true
+        css: my.css
+        menu:
+            side: right
+            width: wide
+        toc: true
+        toc-depth: 1
+editor:
+    render-on-save: true
+---
+
+
+# What is [OpenAlex](OpenAlex.org)
+
+## General Info
+
+# Why OpenAlex
+
+## OpenAlex and Open Science
+
+- Open Data
+- Open Source Code
+- [Nice Web User Interface](https://openalex.org/)
+- [Free API access])https://help.openalex.org/api-and-data-snapshot
+- [Free Data Snapshot](https://docs.openalex.org/download-all-data/openalex-snapshot) 
+
+## OpenAlex versus others  {.extra-small}
+
+|                       | Number of works  | OA works    | Citations | Price        | Data Openness             | Org structure |
+| --------------------- | ---------------- | ----------- | --------- | ------------ | ------------------------- | ------------- |
+| OpenAlex              | 243M             | 48M         | 1.9B      | Freemium     | Fully open, CC0 license   | Non-profit    |
+| Scopus                | 87M              | [20.5M](https://blog.scopus.com/posts/scopus-now-includes-90-million-content-records) | 1.8B      | Subscription | Closed                    | For Profit    |
+| Web of Science (core) | 87M              | [12M](https://clarivate.com/webofsciencegroup/solutions/open-access/)   | 1.8B      | Subscription | Closed                    | For Profit    |
+| Dimensions            | 135M             | [29M](https://www.dimensions.ai/resources/evaluate-your-universitys-oa-status/)   | 1.7B      | Freemium     | Partly open, personal use | For Profit    |
+| Google Scholar        | 389M (estimated) | ?           | ?         | Free         | Closed                    | For Profit    |
+| Crossref              | 145M             | 20M         | 1.45B     | Free         | Fully open, CC0 license   | Non-profit    |
+
+
+::: footer
+[From: https://openalex.org/about#comparison](https://openalex.org/about#comparison)
+:::
+
+## OpenAlex Coverage
+
+![](figures/coverage.png)
+
+::: footer
+[From: https://help.openalex.org/coverage](https://help.openalex.org/coverage)
+:::
+
+
+## [OpenAlex Sources](https://help.openalex.org/how-it-works#our-data-sources)
+:::: {.columns}
+
+::: {.column width="40%"}
+- [MAG](https://aka.ms/msracad)
+- [Crossref](https://www.crossref.org/)
+:::
+
+::: {.column width="60%"}   
+
+- ORCID
+- ROR
+- DOAJ
+- Unpaywall
+- Pubmed
+- Pubmed Central
+- The ISSN International Centre
+- Internet Archive
+- Web crawls
+- Subject-area and institutional repositories from arXiv to Zenodo and many in between
+:::
+
+::::
+
+## [OpenAlex Data Entities](https://docs.openalex.org/api-entities/entities-overview)
+
+![](figures/oa_entities_overview.png)
+
+::: footer
+[From: https://docs.openalex.org/api-entities/entities-overview](https://docs.openalex.org/api-entities/entities-overview)
+:::
+# How to use OpenAlex
+
+- [openalexR](https://docs.ropensci.org/openalexR/) (R)
+- [PyAlex](https://github.com/J535D165/pyalex) (Python)
+- [diophila](https://pypi.org/project/diophila/) (Python)
+- [OpenAlexAPI](https://pypi.org/project/openalexapi/) (Python)
+- [KtAlex](https://github.com/benedekh/KtAlex) (Kotlin)
+
+Also: [VOSviewer](https://www.vosviewer.com) [Slides](https://explore.openalex.org/Visualizing_Science_Using_OpenAlex_and_VOSviewer.pdf) and [Video](https://www.youtube.com/watch?v=MfwFzLQmUwo)
+
+
+
+## GUI
+
+
+[![Web Interface](figures/oa_web_view_2024-05-06_at_09.43.32.png)](https://openalex.org/){target="_blank"}
+
+
+## Important points about Search Terms
+
+- Use `AND`, `OR`, `NOT` in capital letters
+- Use `"` to search for exact phrases
+- Use `(` and `)` to group terms
+- Wildcards `*?` are not supported
+- Stemming is used, so `fish` will also find `fishing`
+
+
+## Programmatically (e.g. R)
+
+## Search Terms
+
+::: {.incremental}
+- Based on Search Term
+
+----
+
+- Inclusive
+- Specificity depend on search terms
+:::
+
+
+## Search Terms
+
+```{r}
+#| code-line-numbers: "1|2-10|12-17|"
+#| echo: true
+#| output-location: column
+
+library(openalexR)
+st <- paste0(
+    '
+    (biodiversity AND "climate change") AND,
+    ("ecosystem services" OR "ecosystem functions") AND
+    "land use" AND
+    conflict AND
+    polar
+    '
+)
+
+openalexR::oa_fetch(
+    entity = "works",
+    search = st,
+    count_only = TRUE,
+    verbose = TRUE
+)
+```
+
+
+## [Snowball Search](https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html)
+
+::: {.incremental}
+- Key Paper
+- Identify cited by Key Papers
+- Identify citing Key Papers
+
+----
+
+- Specific
+- Inclusivity depends on Key Papers
+:::
+
+
+## [Snowball Search](https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html)
+
+```{r}
+#| code-line-numbers: "1|2-6|7-11|12-16|"
+#| echo: true
+#| eval: false
+
+library(openalexR)
+dois <- c(
+    "10.1016/j.marpol.2023.105710",
+    "10.1007/s13280-014-0582-z",
+    "10.1016/j.cosust.2022.101160"
+)
+key_works <- oa_fetch(
+    entity = "works",
+    doi = dois,
+    verbose = TRUE
+)
+snowball <- oa_snowball(
+    identifier = key_works$id,
+    verbose = TRUE
+)
+snowball
+```
+
+
+## {.slide data-background-image="figures/snowball_search.png" data-background-size="contain"}
+
+::: {.footer}
+[https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html](https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html){target="_blank"}
+:::
+
+## OpenAlex Webinars
+
+[OpenAlex Webinars](https://openalex.org/webinars)
+
