@@ -31,7 +31,7 @@ editor:
 - Open Data
 - Open Source Code
 - [Nice Web User Interface](https://openalex.org/)
-- [Free API access])https://help.openalex.org/api-and-data-snapshot
+- [Free API access](https://help.openalex.org/api-and-data-snapshot)
 - [Free Data Snapshot](https://docs.openalex.org/download-all-data/openalex-snapshot) 
 
 ## OpenAlex versus others  {.extra-small}
@@ -102,10 +102,7 @@ Also: [VOSviewer](https://www.vosviewer.com) [Slides](https://explore.openalex.o
 
 
 
-## GUI
-
-
-[![Web Interface](figures/oa_web_view_2024-05-06_at_09.43.32.png)](https://openalex.org/){target="_blank"}
+## [Web Interface](https://openalex.org/){target="_blank"} {.slide data-background-image="figures/oa_web_view_2024-05-06_at_09.43.32.png" data-background-size="contain"}
 
 
 ## Important points about Search Terms
@@ -117,7 +114,7 @@ Also: [VOSviewer](https://www.vosviewer.com) [Slides](https://explore.openalex.o
 - Stemming is used, so `fish` will also find `fishing`
 
 
-## Programmatically (e.g. R)
+# Programmatically (e.g. R)
 
 ## Search Terms
 
@@ -204,7 +201,8 @@ snowball
 [https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html](https://ipbes-data.github.io/IPBES_TG_Snowballing/IPBES_TG_Snowballing.html){target="_blank"}
 :::
 
-## OpenAlex Webinars
+# Other sources
 
-[OpenAlex Webinars](https://openalex.org/webinars)
 
+- [OpenAlex Webinars](https://openalex.org/webinars)
+- [OpenaAlex user Group](https://groups.google.com/g/openalex-users)
